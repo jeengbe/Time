@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import SecondCircle from './Circles/SecondCircle';
+import MinuteCircle from './Circles/MinuteCircle';
+import HourCircle from './Circles/HourCircle';
+import TodayCircle from './Circles/TodayCircle';
+import WeekCircle from './Circles/WeekCircle';
+import MonthCircle from './Circles/MonthCircle';
+import YearCircle from './Circles/YearCircle';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SecondCircle size="33%" />
+    <MinuteCircle size="33%" />
+    <HourCircle size="33%" />
+    <TodayCircle size="33%" />
+    <WeekCircle size="33%" />
+    <MonthCircle size="33%" />
+    <YearCircle size="33%" />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
