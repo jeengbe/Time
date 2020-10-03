@@ -8,15 +8,23 @@ import WeekCircle from './Circles/WeekCircle';
 import MonthCircle from './Circles/MonthCircle';
 import YearCircle from './Circles/YearCircle';
 
+import "bootstrap/dist/css/bootstrap.css";
+
+import "./style/main.scss";
+
 ReactDOM.render(
   <React.StrictMode>
-    <SecondCircle size="33%" />
-    <MinuteCircle size="33%" />
-    <HourCircle size="33%" />
-    <TodayCircle size="33%" />
-    <WeekCircle size="33%" />
-    <MonthCircle size="33%" />
-    <YearCircle size="33%" />
+    <div className="container">
+      <div className="row no-gutters">
+        <SecondCircle />
+        <MinuteCircle />
+        <HourCircle />
+        <TodayCircle />
+        <WeekCircle />
+        <MonthCircle />
+        <YearCircle />
+      </div>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
