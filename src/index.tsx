@@ -7,6 +7,8 @@ import TodayCircle from './Circles/TodayCircle';
 import WeekCircle from './Circles/WeekCircle';
 import MonthCircle from './Circles/MonthCircle';
 import YearCircle from './Circles/YearCircle';
+import DecadeCircle from './Circles/DecadeCircle';
+import CenturyCircle from './Circles/CenturyCircle';
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -23,6 +25,8 @@ ReactDOM.render(
         <WeekCircle />
         <MonthCircle />
         <YearCircle />
+        <DecadeCircle />
+        <CenturyCircle />
       </div>
     </div>
   </React.StrictMode>,
