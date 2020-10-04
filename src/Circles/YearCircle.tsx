@@ -57,12 +57,6 @@ class YearCircle extends Circle<YearCircleProps, YearCircleState> {
         text: "Weihnachten",
         color: "#aacc",
       },
-      // {
-      //   begin: this.date2Ang(new Date("19. Mar. 2020 19:45")),
-      //   end: this.date2Ang(new Date("9. Jul. 2020 16:30")),
-      //   text: "Evelyn",
-      //   color: "#acac",
-      // },
       {
         begin: this.date2Ang(new Date("15. Mar. 2020")),
         end: this.date2Ang(new Date("14. Jun. 2020")),

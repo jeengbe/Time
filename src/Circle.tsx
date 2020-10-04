@@ -15,6 +15,7 @@ class Circle<P extends CircleProps, S extends CircleState> extends React.Compone
   public timer: number = 0;
   protected config = {
     interval: 0,
+    sortSpans: false,
     sizes: {
       ticks: 8,
       status: 4,
@@ -78,7 +79,9 @@ class Circle<P extends CircleProps, S extends CircleState> extends React.Compone
         </text>
       );
     });
-    // this.spans = this.spans.sort((a, b) => a.end-a.begin > b.end-b.begin ? -1 : 1);
+    if(this.config.sortSpans) {
+      this.spans = this.spans.sort((a, b) => (b.end-b.begin) - (a.end-a.begin));
+    }
     let spans = this.spans.map((e, i) => {
       let r = this.config.radii.spans;
 
