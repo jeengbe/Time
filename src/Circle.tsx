@@ -38,7 +38,7 @@ class Circle<P extends CircleProps, S extends CircleState> extends React.Compone
 
   protected events: { angle: number; text: any; color?: string }[] = [];
   protected spans: { begin: number; end: number; text: any; color: string; layer?: any }[] = [];
-  protected labels: { text: any; color: string }[] = [];
+  protected labels: { text: any; color: string; type: "line" | "dot" }[] = [];
 
   // protected ticks: { angle: number; value: any }[] | string[] = [];
   protected ticks: any[] = [];
@@ -79,8 +79,8 @@ class Circle<P extends CircleProps, S extends CircleState> extends React.Compone
         </text>
       );
     });
-    if(this.config.sortSpans) {
-      this.spans = this.spans.sort((a, b) => (b.end-b.begin) - (a.end-a.begin));
+    if (this.config.sortSpans) {
+      this.spans = this.spans.sort((a, b) => b.end - b.begin - (a.end - a.begin));
     }
     let spans = this.spans.map((e, i) => {
       let r = this.config.radii.spans;
@@ -136,18 +136,25 @@ class Circle<P extends CircleProps, S extends CircleState> extends React.Compone
       let x = 64 + this.config.radii.events * Math.cos(a);
       let y = 64 + this.config.radii.events * Math.sin(a);
       return (
-        <text key={e.angle} textAnchor="middle" fontSize={this.config.sizes.events} fill={e.color || "#333333"} alignmentBaseline="central" x={x} y={y}>
-          {e.text}
-        </text>
+        <circle key={e.angle} cx={x} cy={y} r="1" fill={e.color || "#333333"} />
+        // <text key={e.angle} textAnchor="middle" fontSize={this.config.sizes.events} fill={e.color || "#333333"} alignmentBaseline="central" x={x} y={y}>
+        //   {e.text}
+        // </text>
       );
     });
     let labels = this.labels.map((e, i) => {
       return (
         <g key={e.text}>
-          <line stroke={e.color} strokeLinecap="round" strokeWidth="0.75" x1="117" y1={5 + this.config.sizes.labels * i} x2="122" y2={5 + this.config.sizes.labels * i} />
-          <circle cx="117" cy={5 + this.config.sizes.labels * i} r="1.5" fill={e.color} />
-          <circle cx="122" cy={5 + this.config.sizes.labels * i} r="1.5" fill={e.color} />
-          <text x="114" y={4.75 + this.config.sizes.labels * i} alignmentBaseline="central" textAnchor="end" fontSize={this.config.sizes.labels}>
+          {e.type === "line" ? (
+            <>
+              <line stroke={e.color} strokeLinecap="round" strokeWidth="0.75" x1="118" y1={4 + this.config.sizes.labels * i} x2="123" y2={4 + this.config.sizes.labels * i} />
+              <circle cx="123" cy={4 + this.config.sizes.labels * i} r="1.5" fill={e.color} />
+            </>
+          ) : (
+            <></>
+          )}
+          <circle cx="118" cy={4 + this.config.sizes.labels * i} r="1.5" fill={e.color} />
+          <text x="115" y={3.25 + this.config.sizes.labels * i} alignmentBaseline="central" textAnchor="end" fontSize={this.config.sizes.labels}>
             {e.text}
           </text>
         </g>

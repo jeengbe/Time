@@ -1,11 +1,11 @@
 import Circle, { CircleProps, CircleState } from "../Circle";
 
-export interface TodayCircleProps extends CircleProps {}
+export interface DayCircleProps extends CircleProps {}
 
-export interface TodayCircleState extends CircleState {}
+export interface DayCircleState extends CircleState {}
 
-class TodayCircle extends Circle<TodayCircleProps, TodayCircleState> {
-  constructor(props: TodayCircleProps) {
+class DayCircle extends Circle<DayCircleProps, DayCircleState> {
+  constructor(props: DayCircleProps) {
     super(props);
 
     for (let i = 0; i < 24; i++) {
@@ -13,7 +13,7 @@ class TodayCircle extends Circle<TodayCircleProps, TodayCircleState> {
     }
 
     this.state = {
-      status: "Today has passed by",
+      status: "This day has passed by",
       fraction: 0,
     };
   }
@@ -35,4 +35,4 @@ class TodayCircle extends Circle<TodayCircleProps, TodayCircleState> {
   }
 }
 
-export default TodayCircle;
+export default DayCircle;

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SecondCircle from './Circles/SecondCircle';
 import MinuteCircle from './Circles/MinuteCircle';
 import HourCircle from './Circles/HourCircle';
-import TodayCircle from './Circles/TodayCircle';
+import DayCircle from './Circles/DayCircle';
 import WeekCircle from './Circles/WeekCircle';
 import MonthCircle from './Circles/MonthCircle';
 import YearCircle from './Circles/YearCircle';
@@ -21,7 +21,7 @@ ReactDOM.render(
         <SecondCircle />
         <MinuteCircle />
         <HourCircle />
-        <TodayCircle />
+        <DayCircle />
         <WeekCircle />
         <MonthCircle />
         <YearCircle />
